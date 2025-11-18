@@ -15,11 +15,23 @@
 
     document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
   </script>
+  <style>
+    md-filled-text-field {
+        resize: vertical;
+        width: 100%;
+    }
+  </style>
 </head>
 <body>
 <h1 class="md-typescale-display-medium">MaterialLearn</h1>
-<p class="md-typescale-body-medium">A virtual learning environment built with the Material Design design language.</p>
-<p class="md-typescale-body-medium"><b>Select a question set</b></p>
-<md-filled-button href="questionset.html">Development Test</md-filled-button>
+<p class="md-typescale-body-medium"><b>Question 1</b></p>
+<p class="md-typescale-body-medium"></p>
+<md-filled-text-field
+    type="textarea"
+    label="Enter answer here"
+    rows="3">
+</md-filled-text-field>
+<md-outlined-button>Back</md-outlined-button>
+<md-filled-button>Next</md-filled-button>
 </body>
 </html>

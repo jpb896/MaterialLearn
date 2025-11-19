@@ -39,7 +39,7 @@
 <md-filled-button>Next</md-filled-button>
 <script>
 function fetchJSONData() {
-            fetch('./questions.json')
+            fetch('https://raw.githubusercontent.com/jpb896/MaterialLearn/refs/heads/main/questions.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Protocol error encountered. HTTP status: ${response.status}`);

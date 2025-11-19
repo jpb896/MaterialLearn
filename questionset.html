@@ -37,5 +37,19 @@
 </md-filled-text-field>
 <md-outlined-button>Back</md-outlined-button>
 <md-filled-button>Next</md-filled-button>
+<script>
+function fetchJSONData() {
+            fetch('./questions.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Protocol error encountered. HTTP status: ${response.status}`);
+                    }
+                    return response.json();  
+                })
+                .then(data => console.log(data))  
+                .catch(error => console.error('Fetching data failed with error', error)); 
+        }
+fetchJSONData(); 
+</script>
 </body>
 </html>

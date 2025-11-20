@@ -28,8 +28,8 @@
 <md-icon-button href="index.html">
   <md-icon>arrow_back</md-icon>
 </md-icon-button>
-<p class="md-typescale-body-medium"><b>Question 1</b></p>
-<p class="md-typescale-body-medium"></p>
+<p class="md-typescale-body-medium" id="qnum"><b>Question 1</b></p>
+<p class="md-typescale-body-medium" id="question"></p>
 <md-filled-text-field
     type="textarea"
     label="Enter answer here"
@@ -38,18 +38,19 @@
 <md-outlined-button>Back</md-outlined-button>
 <md-filled-button>Next</md-filled-button>
 <script>
-function fetchJSONData() {
-            fetch('https://raw.githubusercontent.com/jpb896/MaterialLearn/refs/heads/main/questions.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Protocol error encountered. HTTP status: ${response.status}`);
-                    }
-                    return response.json();  
-                })
-                .then(data => console.log(data))  
-                .catch(error => console.error('Fetching data failed with error', error)); 
-        }
-fetchJSONData(); 
+async function fetchJson() {
+	const url = "https://raw.githubusercontent.com/jpb896/MaterialLearn/refs/heads/main/questions.json";
+// Source - https://stackoverflow.com/a
+// Posted by Bergi, modified by community. See post 'Timeline' for change history
+// Retrieved 2025-11-20, License - CC BY-SA 4.0
+
+	const response = await fetch(url);
+	const data = await response.json();
+	console.log(response.status, data);
+	document.getElementById("qnum").innerHTML = "Question " + data.questions[0].qnum;
+	document.getElementById("question").innerHTML = data.questions[0].question;
+}
+fetchJson();
 </script>
 </body>
 </html>
